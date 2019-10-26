@@ -27,7 +27,7 @@
                         <td class="task_status">
                             <c:when test="${task_status == 0}">未着手</c:when>
                             <c:when test="${task_status == 1}">作業中！</c:when>
-                            <c:when test="${task_status == 2}">達成！</c:when>
+                            <c:when test="${task_status == 2}">達成！(承認待ち)</c:when>
                             <c:otherwise>期限超過…</c:otherwise>
                         </td>
                     </tr>

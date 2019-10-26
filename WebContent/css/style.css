@@ -157,6 +157,32 @@ table#report_list .report_action {
     width: 13%;
 }
 
+table#report_list th {
+    font-weight: bold;
+    padding: 10px 2%;
+}
+
+table#task_list .task_name {
+    width: 20%;
+    padding: 10px 2%;
+}
+
+table#task_list .task_date {
+    width: 20%;
+}
+
+table#task_list .task_title {
+    width: 20%;
+}
+
+table#task_list .task_action {
+    width: 20%;
+}
+
+table#task_list .task_status {
+    width: 20%;
+}
+
 pre {
     font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
 }
