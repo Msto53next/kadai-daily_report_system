@@ -61,6 +61,9 @@ public class Task {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
+    @Column(name = "status", nullable = false)
+    private int status;
+
     public int getId() {
         return id;
     }
@@ -124,8 +127,5 @@ public class Task {
     public void setStatus(int status) {
         this.status = status;
     }
-
-    @Column(name = "status", nullable = false)
-    private int status;
 
 }
