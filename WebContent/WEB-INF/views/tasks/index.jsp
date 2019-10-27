@@ -26,10 +26,10 @@
                         <td class="task_action"><a href="<c:url value='/tasks/show?id=${task.id}' />">内容を見る</a></td>
                         <td class="task_status">
                             <c:choose>
-                                <c:when test="${task.status == 0}"><p>未着手</p></c:when>
-                                <c:when test="${task.status == 1}"><p>作業中！</p></c:when>
-                                <c:when test="${task.status == 2}"><p>達成！</p></c:when>
-                                <c:otherwise><p>期限超過…</p></c:otherwise>
+                                <c:when test="${task.status == 0}"><p class="no_touch">未着手</p></c:when>
+                                <c:when test="${task.status == 1}"><p class="wip">作業中！</p></c:when>
+                                <c:when test="${task.status == 2}"><p class="complete">達成！</p></c:when>
+                                <c:otherwise><p class="overdue">期限超過…</p></c:otherwise>
                             </c:choose>
                         </td>
                     </tr>

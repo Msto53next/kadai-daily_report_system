@@ -16,13 +16,13 @@ import models.Task;
  * Servlet implementation class TaskNewServlet
  */
 @WebServlet("/tasks/new")
-public class TaskNewServlet extends HttpServlet {
+public class TasksNewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TaskNewServlet() {
+    public TasksNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

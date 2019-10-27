@@ -190,3 +190,19 @@ pre {
 h3 {
     font-size: larger;
 }
+
+.no_touch {
+    color: #006400;
+}
+
+.wip {
+    color: #b22222;
+}
+
+.complete {
+    color: #0000cd;
+}
+
+.overdue {
+    color: #red;
+}
