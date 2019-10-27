@@ -25,10 +25,12 @@
                         <td class="task_title">${task.title}</td>
                         <td class="task_action"><a href="<c:url value='/tasks/show?id=${task.id}' />">内容を見る</a></td>
                         <td class="task_status">
-                            <c:when test="${task_status == 0}"><p>未着手</p></c:when>
-                            <c:when test="${task_status == 1}"><p>作業中！</p></c:when>
-                            <c:when test="${task_status == 2}"><p>達成！(承認待ち)</p></c:when>
-                            <c:otherwise><p>期限超過…</p></c:otherwise>
+                            <c:choose>
+                                <c:when test="${task.status == 0}"><p>未着手</p></c:when>
+                                <c:when test="${task.status == 1}"><p>作業中！</p></c:when>
+                                <c:when test="${task.status == 2}"><p>達成！</p></c:when>
+                                <c:otherwise><p>期限超過…</p></c:otherwise>
+                            </c:choose>
                         </td>
                     </tr>
                 </c:forEach>
