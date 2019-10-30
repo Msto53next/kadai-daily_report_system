@@ -206,3 +206,12 @@ h3 {
 .overdue {
     color: #red;
 }
+
+details {
+    margin-bottom:15px;
+}
+
+details > summary {
+    font-weight: bold;
+    font-size: 20px;
+}

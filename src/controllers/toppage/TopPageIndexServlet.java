@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Employee;
 import models.Report;
+import models.Task;
 import utils.DBUtil;
 
 /**
@@ -55,11 +56,33 @@ public class TopPageIndexServlet extends HttpServlet {
                                       .setParameter("employee", login_employee)
                                       .getSingleResult();
 
+        //タスク用ページネーション
+        int pageT;
+        try{
+            pageT = Integer.parseInt(request.getParameter("pageT"));
+        } catch(Exception e) {
+            pageT = 1;
+        }
+
+        List<Task> tasks = em.createNamedQuery("getMyAllTasks", Task.class)
+                              .setParameter("employee", login_employee)
+                              .setFirstResult(15 * (pageT -1))
+                              .setMaxResults(15)
+                              .getResultList();
+
+        long tasks_count = (long)em.createNamedQuery("getMyTasksCount", Long.class)
+                                      .setParameter("employee", login_employee)
+                                      .getSingleResult();
+
         em.close();
 
         request.setAttribute("reports", reports);
         request.setAttribute("reports_count", reports_count);
         request.setAttribute("page", page);
+
+        request.setAttribute("tasks", tasks);
+        request.setAttribute("tasks_count", tasks_count);
+        request.setAttribute("pageT", pageT);
 
         if(request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));
