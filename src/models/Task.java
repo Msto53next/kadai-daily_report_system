@@ -32,6 +32,10 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "getMyTasksCount",
             query = "SELECT COUNT(t) FROM Task AS t WHERE t.employee = :employee"
+            ),
+    @NamedQuery(
+            name = "getMyCompletedTasksCount",
+            query = "SELECT COUNT(t) FROM Task AS t WHERE t.employee = :employee AND t.status = 2"
             )
 })
 @Entity

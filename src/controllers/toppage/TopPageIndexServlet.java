@@ -74,6 +74,18 @@ public class TopPageIndexServlet extends HttpServlet {
                                       .setParameter("employee", login_employee)
                                       .getSingleResult();
 
+        //タスク達成率の計算用に、getMyCompletedTasksCountを実行
+        long compTasks_count = (long)em.createNamedQuery("getMyCompletedTasksCount", Long.class)
+                                           .setParameter("employee", login_employee)
+                                           .getSingleResult();
+
+        //達成率は（達成した数÷タスクの総数）のごく簡単な形で求める。
+        Double achivement = (double)(compTasks_count / (double)tasks_count * 1.0) * 100;
+
+        //achivementをString.formatで小数点第二位まで指定して文字列型の変数に格納。
+
+        String achive = String.format("%.2f", achivement);
+
         em.close();
 
         request.setAttribute("reports", reports);
@@ -82,6 +94,7 @@ public class TopPageIndexServlet extends HttpServlet {
 
         request.setAttribute("tasks", tasks);
         request.setAttribute("tasks_count", tasks_count);
+        request.setAttribute("achive", achive);
         request.setAttribute("pageT", pageT);
 
         if(request.getSession().getAttribute("flush") != null) {

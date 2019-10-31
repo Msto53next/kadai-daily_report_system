@@ -9,6 +9,14 @@
             </div>
         </c:if>
         <h2>日報管理システムへようこそ</h2>
+        <div class="describe">
+            <p>現在の状況 : </p><br />
+            <div class="tips">
+                <c:out value="${sessionScope.login_employee.name}" />&nbsp;さんのタスク達成率<br />
+                <p><c:out value="${achive}" />%</p>
+            </div>
+        </div>
+
         <details>
         <summary>【自分の日報 一覧】</summary>
         <table id="report_list">
@@ -84,7 +92,7 @@
                         <c:out value="${i}" />&nbsp;
                     </c:when>
                     <c:otherwise>
-                        <a href="<c:url value='/?page=${i}' />"><c:out value="${i}" /></a>&nbsp;
+                        <a href="<c:url value='/?pageT=${i}' />"><c:out value="${i}" /></a>&nbsp;
                     </c:otherwise>
                 </c:choose>
             </c:forEach>

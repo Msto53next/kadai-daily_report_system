@@ -204,7 +204,7 @@ h3 {
 }
 
 .overdue {
-    color: #red;
+    color: #ff0000;
 }
 
 details {
@@ -214,4 +214,41 @@ details {
 details > summary {
     font-weight: bold;
     font-size: 20px;
+}
+
+.describe {
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4169e1;
+    margin-bottom: 20px;;
+}
+
+.describe p {
+    color: #4169e1;
+    padding: 0px;
+    margin: 0px;
+}
+
+ .tips {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color:#ccffcc;
+    color: #4169e1;
+    width: 200px;
+}
+
+.tips p {
+    color: tomato;
+}
+
+.describe:hover .tips {
+    display: inline-block;
+    top: 0px;
+    left: 120px;
 }
